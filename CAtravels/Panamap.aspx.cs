@@ -21,7 +21,7 @@ namespace CAtravels
             string pais = "Panama";
             conec.Open();
             MySqlCommand cmd = conec.CreateCommand();
-            cmd.CommandText = "select * from empresa WHERE Ubicacion_Empresa ='" + pais + "';";
+            cmd.CommandText = "select * from empresaeng WHERE Ubicacion_Empresa ='" + pais + "';";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
@@ -112,7 +112,7 @@ namespace CAtravels
             try
             {
                 MySqlConnection conexion = conexionBD.ObtenerConexion();
-                MySqlCommand comand = new MySqlCommand("SELECT * FROM empresa WHERE Id_empresa=@ID", conexion);
+                MySqlCommand comand = new MySqlCommand("SELECT * FROM empresaeng WHERE Id_empresa=@ID", conexion);
                 comand.Parameters.AddWithValue("@ID", txtid.Text);
                 MySqlDataReader registro = comand.ExecuteReader();
                 if (registro.Read())
